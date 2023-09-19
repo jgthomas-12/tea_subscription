@@ -7,7 +7,7 @@ class Api::V1::SubscriptionsController < ApplicationController
       if subscription.save
         render json: { success: "Subscription added successfully" }, status: :created
       else
-        render json: { error: subscription.errors.full_messages.join(', ') }, status: :unprocessable_entity
+        render json: { error: "Invalid parameters" }, status: :unprocessable_entity
       end
     else
       render json: { error: "Customer not found" }, status: :not_found
