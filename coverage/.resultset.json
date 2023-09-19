@@ -32,6 +32,7 @@
           2,
           null,
           null,
+          null,
           1,
           2,
           2,
@@ -48,6 +49,8 @@
           1,
           null,
           1,
+          1,
+          null,
           1,
           null
         ]
@@ -81,8 +84,38 @@
           1,
           null
         ]
+      },
+      "/Users/jessethomas/Desktop/Desktop - Turing (2)/turing_work/4mod/projects/tea_subscription/spec/requests/api/v1/subscription_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          1,
+          null,
+          2,
+          2,
+          null,
+          1,
+          1,
+          1,
+          0,
+          null,
+          0,
+          0,
+          null,
+          0,
+          null,
+          0,
+          0,
+          0,
+          null,
+          null,
+          null,
+          null
+        ]
       }
     },
-    "timestamp": 1695153054
+    "timestamp": 1695163841
   }
 }
