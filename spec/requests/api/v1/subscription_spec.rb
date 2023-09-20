@@ -58,7 +58,7 @@ RSpec.describe "API V1 Subscription request", type: :request do
       end
 
       # it "returns an error if a customer_id is invalid" do
-      # expect{ Customer.find(customer1.id) }.to raise_error(ActiveRecord::RecordNotFound)
+      # # expect{ Customer.find(customer1.id) }.to raise_error(ActiveRecord::RecordNotFound)
 
       #   customer_id = 999
       #   subscription_params = FactoryBot.attributes_for(:subscription, tea_id: tea1.id)
@@ -72,7 +72,6 @@ RSpec.describe "API V1 Subscription request", type: :request do
 
       #   expect(error_response).to be_a(Hash)
       #   expect(error_response).to have_key(:error)
-      #   require 'pry'; binding.pry
       #   expect(error_response[:error]).to include("Customer must exist")
       # end
     end
@@ -103,6 +102,51 @@ RSpec.describe "API V1 Subscription request", type: :request do
       end
     end
 
-    # sad path - how can you make a subscription that can't be deleted? Add dependencies? 
+    # sad path - how can you make a subscription that can't be deleted? Add dependencies?
+  end
+
+  describe "GET /api/v1/customers/:id/subscriptions" do
+
+    let!(:customer1) { FactoryBot.create(:customer) }
+    let!(:tea1) { FactoryBot.create(:tea) }
+    let!(:tea2) { FactoryBot.create(:tea) }
+    let!(:subscription1) { FactoryBot.create(:subscription, status: true, customer: customer1, tea: tea1) }
+    let!(:subscription2) { FactoryBot.create(:subscription, status: false,  customer: customer1, tea: tea2) }
+    let!(:subscription3) { FactoryBot.create(:subscription, status: true,  customer: customer1, tea: tea2) }
+
+    context "happy path" do
+      it "returns a JSON object with all of a customer's subscriptions both active and inactive" do
+
+        get api_v1_customer_subscriptions_path(customer1)
+
+        expect(response).to be_successful
+        expect(response.status).to eq(200)
+
+        subscriptions = JSON.parse(response.body, symbolize_names: true)
+        expect(subscriptions[:data].count).to eq(3)
+
+        expect(subscriptions).to be_a(Hash)
+        expect(subscriptions).to have_key(:data)
+        expect(subscriptions[:data]).to be_an(Array)
+        expect(subscriptions[:data].first).to be_a(Hash)
+        expect(subscriptions[:data].first).to have_key(:id)
+        expect(subscriptions[:data].first).to have_key(:type)
+        expect(subscriptions[:data].first).to have_key(:attributes)
+
+        expect(subscriptions[:data].first[:id]).to be_a(String)
+        expect(subscriptions[:data].first[:type]).to be_a(String)
+        expect(subscriptions[:data].first[:attributes]).to be_a(Hash)
+
+        expect(subscriptions[:data].first[:attributes]).to have_key(:title)
+        expect(subscriptions[:data].first[:attributes]).to have_key(:price)
+        expect(subscriptions[:data].first[:attributes]).to have_key(:status)
+        expect(subscriptions[:data].first[:attributes]).to have_key(:frequency)
+
+        expect(subscriptions[:data].first[:attributes][:title]).to be_a(String)
+        expect(subscriptions[:data].first[:attributes][:price]).to be_a(Float)
+        expect(subscriptions[:data].first[:attributes][:status]).to be_instance_of(TrueClass).or be_instance_of(FalseClass)
+        expect(subscriptions[:data].first[:attributes][:frequency]).to be_a(String)
+      end
+    end
   end
 end
