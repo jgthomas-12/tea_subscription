@@ -1,4 +1,6 @@
 class Api::V1::SubscriptionsController < ApplicationController
+  rescue_from ActiveRecord::RecordNotFound, with: :not_found
+
   def index
     customer = Customer.find(params[:customer_id])
     subscriptions = customer.subscriptions
@@ -16,8 +18,20 @@ class Api::V1::SubscriptionsController < ApplicationController
       else
         render json: { error: "Invalid parameters" }, status: :unprocessable_entity
       end
+    end
+  end
+
+  def update
+    subscription = Subscription.find(params[:id])
+
+    if subscription.update(subscription_params)
+      if subscription.status == false
+        render json: { success: "Subscription is now inactive" }, status: :accepted
+      else
+        render json: { success: "Subscription is now active" }, status: :accepted
+      end
     else
-      render json: { error: "Customer not found" }, status: :not_found
+      render json: { error: "FAIL: invalid params" }, status: :unprocessable_entity
     end
   end
 
@@ -25,8 +39,6 @@ class Api::V1::SubscriptionsController < ApplicationController
     subscription = Subscription.find(params[:id])
     if subscription.destroy
       render json: { success: "Subscription deleted successfully" }, status: :ok
-    else
-      render json: { error: "Failed to delete subscription" }, status: :unprocessable_entity
     end
   end
 
@@ -34,5 +46,9 @@ class Api::V1::SubscriptionsController < ApplicationController
 
   def subscription_params
     params.require(:subscription).permit(:title, :price, :status, :frequency, :tea_id)
+  end
+
+  def not_found
+    render json: { error: "Search query not found" }, status: :not_found
   end
 end

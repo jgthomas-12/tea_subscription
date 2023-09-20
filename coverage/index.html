@@ -14,7 +14,7 @@
       <img src="./assets/0.12.3/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" class="hide">
-      <div class="timestamp">Generated <abbr class="timeago" title="2023-09-19T19:56:31-06:00">2023-09-19T19:56:31-06:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2023-09-20T11:24:13-06:00">2023-09-20T11:24:13-06:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -23,14 +23,14 @@
     <span class="group_name">All Files</span>
     (<span class="covered_percent">
       <span class="green">
-  98.68%
+  100.0%
 </span>
 
      </span>
      covered at
      <span class="covered_strength">
        <span class="green">
-         1.25
+         1.28
        </span>
     </span> hits/line
     )
@@ -43,11 +43,11 @@
   </div>
 
   <div class="t-line-summary">
-    <b>152</b> relevant lines,
-    <span class="green"><b>150</b> lines covered</span> and
-    <span class="red"><b>2</b> lines missed. </span>
+    <b>205</b> relevant lines,
+    <span class="green"><b>205</b> lines covered</span> and
+    <span class="red"><b>0</b> lines missed. </span>
     (<span class="green">
-  98.68%
+  100.0%
 </span>
 )
   </div>
@@ -72,12 +72,12 @@
         
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#0139c2579a0b937474878d56efe7ae82475bbc4d" class="src_link" title="app/controllers/api/v1/subscriptions_controller.rb">app/controllers/api/v1/subscriptions_controller.rb</a></td>
-            <td class="green strong cell--number t-file__coverage">90.48 %</td>
-            <td class="cell--number">38</td>
-            <td class="cell--number">21</td>
-            <td class="cell--number">19</td>
-            <td class="cell--number">2</td>
-            <td class="cell--number">1.43</td>
+            <td class="green strong cell--number t-file__coverage">100.00 %</td>
+            <td class="cell--number">54</td>
+            <td class="cell--number">29</td>
+            <td class="cell--number">29</td>
+            <td class="cell--number">0</td>
+            <td class="cell--number">1.69</td>
             
           </tr>
         
@@ -172,11 +172,11 @@
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#ac3a07bb5714d5db14de1bc1484f5102c7ee8e36" class="src_link" title="spec/requests/api/v1/subscription_spec.rb">spec/requests/api/v1/subscription_spec.rb</a></td>
             <td class="green strong cell--number t-file__coverage">100.00 %</td>
-            <td class="cell--number">152</td>
-            <td class="cell--number">85</td>
-            <td class="cell--number">85</td>
+            <td class="cell--number">206</td>
+            <td class="cell--number">130</td>
+            <td class="cell--number">130</td>
             <td class="cell--number">0</td>
-            <td class="cell--number">1.19</td>
+            <td class="cell--number">1.18</td>
             
           </tr>
         
@@ -202,7 +202,7 @@
     <h3>app/controllers/api/v1/subscriptions_controller.rb</h3>
     <h4>
       <span class="green">
-  90.48%
+  100.0%
 </span>
 
       lines covered
@@ -211,9 +211,9 @@
     
 
     <div class="t-line-summary">
-      <b>21</b> relevant lines.
-      <span class="green"><b>19</b> lines covered</span> and
-      <span class="red"><b>2</b> lines missed.</span>
+      <b>29</b> relevant lines.
+      <span class="green"><b>29</b> lines covered</span> and
+      <span class="red"><b>0</b> lines missed.</span>
     </div>
 
     
@@ -241,18 +241,18 @@
 
             
 
-            <code class="ruby">  def index</code>
+            <code class="ruby">  rescue_from ActiveRecord::RecordNotFound, with: :not_found</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="3">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="3">
+            
             
 
             
 
-            <code class="ruby">    customer = Customer.find(params[:customer_id])</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -263,18 +263,18 @@
 
             
 
-            <code class="ruby">    subscriptions = customer.subscriptions</code>
+            <code class="ruby">  def index</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="5">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="5">
+            <span class="hits">1</span>
             
 
-            <code class="ruby"></code>
+            
+
+            <code class="ruby">    customer = Customer.find(params[:customer_id])</code>
           </li>
         </div>
       
@@ -285,7 +285,7 @@
 
             
 
-            <code class="ruby">    render json: subscriptions, each_serializer: SubscriptionSerializer</code>
+            <code class="ruby">    subscriptions = customer.subscriptions</code>
           </li>
         </div>
       
@@ -296,12 +296,34 @@
 
             
 
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="8">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    render json: subscriptions, each_serializer: SubscriptionSerializer</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="9">
+            
+            
+
+            
+
             <code class="ruby">  end</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="8">
+          <li class="never" data-hits="" data-linenumber="10">
             
             
 
@@ -312,7 +334,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="9">
+          <li class="covered" data-hits="1" data-linenumber="11">
             <span class="hits">1</span>
             
 
@@ -323,8 +345,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="3" data-linenumber="10">
-            <span class="hits">3</span>
+          <li class="covered" data-hits="4" data-linenumber="12">
+            <span class="hits">4</span>
             
 
             
@@ -334,7 +356,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="11">
+          <li class="never" data-hits="" data-linenumber="13">
             
             
 
@@ -345,7 +367,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="3" data-linenumber="12">
+          <li class="covered" data-hits="3" data-linenumber="14">
             <span class="hits">3</span>
             
 
@@ -356,7 +378,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="3" data-linenumber="13">
+          <li class="covered" data-hits="3" data-linenumber="15">
             <span class="hits">3</span>
             
 
@@ -367,7 +389,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="3" data-linenumber="14">
+          <li class="covered" data-hits="3" data-linenumber="16">
             <span class="hits">3</span>
             
 
@@ -378,7 +400,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="15">
+          <li class="covered" data-hits="1" data-linenumber="17">
             <span class="hits">1</span>
             
 
@@ -389,7 +411,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="16">
+          <li class="never" data-hits="" data-linenumber="18">
             
             
 
@@ -400,7 +422,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="2" data-linenumber="17">
+          <li class="covered" data-hits="2" data-linenumber="19">
             <span class="hits">2</span>
             
 
@@ -411,35 +433,13 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="18">
+          <li class="never" data-hits="" data-linenumber="20">
             
             
 
             
 
             <code class="ruby">      end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="19">
-            
-            
-
-            
-
-            <code class="ruby">    else</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="20">
-            
-            
-
-            
-
-            <code class="ruby">      render json: { error: &quot;Customer not found&quot; }, status: :not_found</code>
           </li>
         </div>
       
@@ -483,13 +483,13 @@
 
             
 
-            <code class="ruby">  def destroy</code>
+            <code class="ruby">  def update</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="25">
-            <span class="hits">1</span>
+          <li class="covered" data-hits="3" data-linenumber="25">
+            <span class="hits">3</span>
             
 
             
@@ -499,46 +499,46 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="26">
+          <li class="never" data-hits="" data-linenumber="26">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="3" data-linenumber="27">
+            <span class="hits">3</span>
+            
+
+            
+
+            <code class="ruby">    if subscription.update(subscription_params)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="2" data-linenumber="28">
+            <span class="hits">2</span>
+            
+
+            
+
+            <code class="ruby">      if subscription.status == false</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="29">
             <span class="hits">1</span>
             
 
             
 
-            <code class="ruby">    if subscription.destroy</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="27">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">      render json: { success: &quot;Subscription deleted successfully&quot; }, status: :ok</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="28">
-            
-            
-
-            
-
-            <code class="ruby">    else</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="29">
-            
-            
-
-            
-
-            <code class="ruby">      render json: { error: &quot;Failed to delete subscription&quot; }, status: :unprocessable_entity</code>
+            <code class="ruby">        render json: { success: &quot;Subscription is now inactive&quot; }, status: :accepted</code>
           </li>
         </div>
       
@@ -549,18 +549,18 @@
 
             
 
-            <code class="ruby">    end</code>
+            <code class="ruby">      else</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="31">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="31">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">  end</code>
+            
+
+            <code class="ruby">        render json: { success: &quot;Subscription is now active&quot; }, status: :accepted</code>
           </li>
         </div>
       
@@ -571,56 +571,45 @@
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">      end</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="33">
+          <li class="never" data-hits="" data-linenumber="33">
+            
+            
+
+            
+
+            <code class="ruby">    else</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="34">
             <span class="hits">1</span>
             
 
             
 
-            <code class="ruby">  private</code>
+            <code class="ruby">      render json: { error: &quot;FAIL: invalid params&quot; }, status: :unprocessable_entity</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="34">
+          <li class="never" data-hits="" data-linenumber="35">
             
             
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">    end</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="35">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">  def subscription_params</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="3" data-linenumber="36">
-            <span class="hits">3</span>
-            
-
-            
-
-            <code class="ruby">    params.require(:subscription).permit(:title, :price, :status, :frequency, :tea_id)</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="37">
+          <li class="never" data-hits="" data-linenumber="36">
             
             
 
@@ -631,7 +620,194 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="38">
+          <li class="never" data-hits="" data-linenumber="37">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="38">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">  def destroy</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="39">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    subscription = Subscription.find(params[:id])</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="40">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    if subscription.destroy</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="41">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">      render json: { success: &quot;Subscription deleted successfully&quot; }, status: :ok</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="42">
+            
+            
+
+            
+
+            <code class="ruby">    end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="43">
+            
+            
+
+            
+
+            <code class="ruby">  end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="44">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="45">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">  private</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="46">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="47">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">  def subscription_params</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="6" data-linenumber="48">
+            <span class="hits">6</span>
+            
+
+            
+
+            <code class="ruby">    params.require(:subscription).permit(:title, :price, :status, :frequency, :tea_id)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="49">
+            
+            
+
+            
+
+            <code class="ruby">  end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="50">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="51">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">  def not_found</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="52">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    render json: { error: &quot;Search query not found&quot; }, status: :not_found</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="53">
+            
+            
+
+            
+
+            <code class="ruby">  end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="54">
             
             
 
@@ -1667,8 +1843,8 @@
     
 
     <div class="t-line-summary">
-      <b>85</b> relevant lines.
-      <span class="green"><b>85</b> lines covered</span> and
+      <b>130</b> relevant lines.
+      <span class="green"><b>130</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
 
@@ -1735,8 +1911,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="4" data-linenumber="6">
-            <span class="hits">4</span>
+          <li class="covered" data-hits="5" data-linenumber="6">
+            <span class="hits">5</span>
             
 
             
@@ -1746,8 +1922,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="4" data-linenumber="7">
-            <span class="hits">4</span>
+          <li class="covered" data-hits="5" data-linenumber="7">
+            <span class="hits">5</span>
             
 
             
@@ -1917,7 +2093,7 @@
 
             
 
-            <code class="ruby">        new_subscription = JSON.parse(response.body, symbolize_names: true)</code>
+            <code class="ruby">        new_sub_response = JSON.parse(response.body, symbolize_names: true)</code>
           </li>
         </div>
       
@@ -1939,7 +2115,7 @@
 
             
 
-            <code class="ruby">        expect(new_subscription).to be_a(Hash)</code>
+            <code class="ruby">        expect(new_sub_response).to be_a(Hash)</code>
           </li>
         </div>
       
@@ -1950,7 +2126,7 @@
 
             
 
-            <code class="ruby">        expect(new_subscription).to have_key(:success)</code>
+            <code class="ruby">        expect(new_sub_response).to have_key(:success)</code>
           </li>
         </div>
       
@@ -1961,7 +2137,7 @@
 
             
 
-            <code class="ruby">        expect(new_subscription).to have_value(&quot;Subscription added successfully&quot;)</code>
+            <code class="ruby">        expect(new_sub_response).to have_value(&quot;Subscription added successfully&quot;)</code>
           </li>
         </div>
       
@@ -2016,7 +2192,7 @@
 
             
 
-            <code class="ruby">      it &quot;returns an error if a tea_id is invalid&quot; do</code>
+            <code class="ruby">      it &quot;returns an error message if a tea_id is invalid&quot; do</code>
           </li>
         </div>
       
@@ -2181,7 +2357,7 @@
 
             
 
-            <code class="ruby">      it &quot;returns an error if parameter values are invalid&quot; do</code>
+            <code class="ruby">      it &quot;returns an error message if parameter values are invalid&quot; do</code>
           </li>
         </div>
       
@@ -2329,13 +2505,13 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="60">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="60">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">      # it &quot;returns an error if a customer_id is invalid&quot; do</code>
+            
+
+            <code class="ruby">      it &quot;returns an error if a customer_id is invalid&quot; do</code>
           </li>
         </div>
       
@@ -2346,29 +2522,29 @@
 
             
 
-            <code class="ruby">      # # expect{ Customer.find(customer1.id) }.to raise_error(ActiveRecord::RecordNotFound)</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="62">
-            
-            
-
-            
-
             <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="63">
+          <li class="covered" data-hits="1" data-linenumber="62">
+            <span class="hits">1</span>
             
+
+            
+
+            <code class="ruby">        customer_id = 999</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="63">
+            <span class="hits">1</span>
             
 
             
 
-            <code class="ruby">      #   customer_id = 999</code>
+            <code class="ruby">        subscription_params = FactoryBot.attributes_for(:subscription, tea_id: tea1.id)</code>
           </li>
         </div>
       
@@ -2379,18 +2555,18 @@
 
             
 
-            <code class="ruby">      #   subscription_params = FactoryBot.attributes_for(:subscription, tea_id: tea1.id)</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="65">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="65">
+            <span class="hits">1</span>
             
 
-            <code class="ruby"></code>
+            
+
+            <code class="ruby">        post &quot;/api/v1/customers/#{customer_id}/subscriptions&quot;, params: { subscription: subscription_params }</code>
           </li>
         </div>
       
@@ -2401,29 +2577,29 @@
 
             
 
-            <code class="ruby">      #   post &quot;/api/v1/customers/#{customer_id}/subscriptions&quot;, params: { subscription: subscription_params }</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="67">
-            
-            
-
-            
-
             <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="68">
+          <li class="covered" data-hits="1" data-linenumber="67">
+            <span class="hits">1</span>
             
+
+            
+
+            <code class="ruby">        expect(response).not_to be_successful</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="68">
+            <span class="hits">1</span>
             
 
             
 
-            <code class="ruby">      #   expect(response).not_to be_successful</code>
+            <code class="ruby">        expect(response.status).to eq(404)</code>
           </li>
         </div>
       
@@ -2434,309 +2610,12 @@
 
             
 
-            <code class="ruby">      #   expect(response.status).to eq(422)</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="70">
-            
-            
-
-            
-
             <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="71">
-            
-            
-
-            
-
-            <code class="ruby">      #   error_response = JSON.parse(response.body, symbolize_names: true)</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="72">
-            
-            
-
-            
-
-            <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="73">
-            
-            
-
-            
-
-            <code class="ruby">      #   expect(error_response).to be_a(Hash)</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="74">
-            
-            
-
-            
-
-            <code class="ruby">      #   expect(error_response).to have_key(:error)</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="75">
-            
-            
-
-            
-
-            <code class="ruby">      #   expect(error_response[:error]).to include(&quot;Customer must exist&quot;)</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="76">
-            
-            
-
-            
-
-            <code class="ruby">      # end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="77">
-            
-            
-
-            
-
-            <code class="ruby">    end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="78">
-            
-            
-
-            
-
-            <code class="ruby">  end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="79">
-            
-            
-
-            
-
-            <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="80">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">  describe &quot;DELETE /api/v1/customers/:id/subscriptions&quot; do</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="81">
-            
-            
-
-            
-
-            <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="2" data-linenumber="82">
-            <span class="hits">2</span>
-            
-
-            
-
-            <code class="ruby">    let!(:customer1) { FactoryBot.create(:customer) }</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="2" data-linenumber="83">
-            <span class="hits">2</span>
-            
-
-            
-
-            <code class="ruby">    let!(:tea1) { FactoryBot.create(:tea) }</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="2" data-linenumber="84">
-            <span class="hits">2</span>
-            
-
-            
-
-            <code class="ruby">    let!(:subscription1) { FactoryBot.create(:subscription, customer: customer1, tea: tea1) }</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="85">
-            
-            
-
-            
-
-            <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="86">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">    context &quot;happy path&quot; do</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="87">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">      it &quot;successfully deletes a customer&#39;s subscription&quot; do</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="88">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">        expect(customer1.subscriptions.count).to eq(1)</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="89">
-            
-            
-
-            
-
-            <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="90">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">        delete api_v1_customer_subscription_path(customer1, subscription1)</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="91">
-            
-            
-
-            
-
-            <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="92">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">        expect(response).to be_successful</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="93">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">        expect(response.status).to eq(200)</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="94">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">        expect(customer1.subscriptions.count).to eq(0)</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="2" data-linenumber="95">
-            <span class="hits">2</span>
-            
-
-            
-
-            <code class="ruby">        expect{ Subscription.find(subscription1.id) }.to raise_error(ActiveRecord::RecordNotFound)</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="96">
-            
-            
-
-            
-
-            <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="97">
+          <li class="covered" data-hits="1" data-linenumber="70">
             <span class="hits">1</span>
             
 
@@ -2747,7 +2626,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="98">
+          <li class="never" data-hits="" data-linenumber="71">
             
             
 
@@ -2758,7 +2637,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="99">
+          <li class="covered" data-hits="1" data-linenumber="72">
             <span class="hits">1</span>
             
 
@@ -2769,29 +2648,29 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="100">
+          <li class="covered" data-hits="1" data-linenumber="73">
             <span class="hits">1</span>
             
 
             
 
-            <code class="ruby">        expect(error_response).to have_key(:success)</code>
+            <code class="ruby">        expect(error_response).to have_key(:error)</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="101">
+          <li class="covered" data-hits="1" data-linenumber="74">
             <span class="hits">1</span>
             
 
             
 
-            <code class="ruby">        expect(error_response).to have_value(&quot;Subscription deleted successfully&quot;)</code>
+            <code class="ruby">        expect(error_response[:error]).to include(&quot;Search query not found&quot;)</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="102">
+          <li class="never" data-hits="" data-linenumber="75">
             
             
 
@@ -2802,13 +2681,310 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="103">
+          <li class="never" data-hits="" data-linenumber="76">
             
             
 
             
 
             <code class="ruby">    end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="77">
+            
+            
+
+            
+
+            <code class="ruby">  end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="78">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="79">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">  describe &quot;DELETE /api/v1/customers/:id/subscriptions&quot; do</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="80">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="2" data-linenumber="81">
+            <span class="hits">2</span>
+            
+
+            
+
+            <code class="ruby">    let!(:customer1) { FactoryBot.create(:customer) }</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="2" data-linenumber="82">
+            <span class="hits">2</span>
+            
+
+            
+
+            <code class="ruby">    let!(:tea1) { FactoryBot.create(:tea) }</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="2" data-linenumber="83">
+            <span class="hits">2</span>
+            
+
+            
+
+            <code class="ruby">    let!(:subscription1) { FactoryBot.create(:subscription, customer: customer1, tea: tea1) }</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="84">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="85">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    context &quot;happy path&quot; do</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="86">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">      it &quot;successfully deletes a customer&#39;s subscription&quot; do</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="87">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">        expect(customer1.subscriptions.count).to eq(1)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="88">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="89">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">        delete api_v1_customer_subscription_path(customer1, subscription1)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="90">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="91">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">        expect(response).to be_successful</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="92">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">        expect(response.status).to eq(200)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="93">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">        expect(customer1.subscriptions.count).to eq(0)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="2" data-linenumber="94">
+            <span class="hits">2</span>
+            
+
+            
+
+            <code class="ruby">        expect{ Subscription.find(subscription1.id) }.to raise_error(ActiveRecord::RecordNotFound)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="95">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="96">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">        error_response = JSON.parse(response.body, symbolize_names: true)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="97">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="98">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">        expect(error_response).to be_a(Hash)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="99">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">        expect(error_response).to have_key(:success)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="100">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">        expect(error_response).to have_value(&quot;Subscription deleted successfully&quot;)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="101">
+            
+            
+
+            
+
+            <code class="ruby">      end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="102">
+            
+            
+
+            
+
+            <code class="ruby">    end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="103">
+            
+            
+
+            
+
+            <code class="ruby">  end</code>
           </li>
         </div>
       
@@ -2824,13 +3000,13 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="105">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="105">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">    # sad path - how can you make a subscription that can&#39;t be deleted? Add dependencies?</code>
+            
+
+            <code class="ruby">  describe &quot;PATCH /api/v1/customers/:id/subscriptions&quot; do</code>
           </li>
         </div>
       
@@ -2841,46 +3017,13 @@
 
             
 
-            <code class="ruby">  end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="107">
-            
-            
-
-            
-
             <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="108">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">  describe &quot;GET /api/v1/customers/:id/subscriptions&quot; do</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="109">
-            
-            
-
-            
-
-            <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="2" data-linenumber="110">
-            <span class="hits">2</span>
+          <li class="covered" data-hits="3" data-linenumber="107">
+            <span class="hits">3</span>
             
 
             
@@ -2890,8 +3033,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="2" data-linenumber="111">
-            <span class="hits">2</span>
+          <li class="covered" data-hits="3" data-linenumber="108">
+            <span class="hits">3</span>
             
 
             
@@ -2901,19 +3044,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="2" data-linenumber="112">
-            <span class="hits">2</span>
-            
-
-            
-
-            <code class="ruby">    let!(:tea2) { FactoryBot.create(:tea) }</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="2" data-linenumber="113">
-            <span class="hits">2</span>
+          <li class="covered" data-hits="3" data-linenumber="109">
+            <span class="hits">3</span>
             
 
             
@@ -2923,24 +3055,68 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="2" data-linenumber="114">
-            <span class="hits">2</span>
+          <li class="never" data-hits="" data-linenumber="110">
+            
             
 
             
 
-            <code class="ruby">    let!(:subscription2) { FactoryBot.create(:subscription, status: false,  customer: customer1, tea: tea2) }</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="2" data-linenumber="115">
-            <span class="hits">2</span>
+          <li class="covered" data-hits="1" data-linenumber="111">
+            <span class="hits">1</span>
             
 
             
 
-            <code class="ruby">    let!(:subscription3) { FactoryBot.create(:subscription, status: true,  customer: customer1, tea: tea2) }</code>
+            <code class="ruby">    context &quot;happy path&quot; do</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="112">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">      it &quot;successfully cancels/activates a customer&#39;s subscription (update status from active to inactive)&quot; do</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="113">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">        expect(subscription1.status).to eq(true)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="114">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="115">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">        subscription_params_deactivate = FactoryBot.attributes_for(:subscription, status: false)</code>
           </li>
         </div>
       
@@ -2962,23 +3138,12 @@
 
             
 
-            <code class="ruby">    context &quot;happy path&quot; do</code>
+            <code class="ruby">        patch api_v1_customer_subscription_path(customer1, subscription1), params: { subscription: subscription_params_deactivate }</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="118">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">      it &quot;returns a JSON object with all of a customer&#39;s subscriptions both active and inactive&quot; do</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="119">
+          <li class="never" data-hits="" data-linenumber="118">
             
             
 
@@ -2989,29 +3154,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="120">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">        get api_v1_customer_subscriptions_path(customer1)</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="121">
-            
-            
-
-            
-
-            <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="122">
+          <li class="covered" data-hits="1" data-linenumber="119">
             <span class="hits">1</span>
             
 
@@ -3022,13 +3165,46 @@
         </div>
       
         <div>
+          <li class="covered" data-hits="1" data-linenumber="120">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">        expect(response.status).to eq(202)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="121">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">        expect(subscription1.reload.status).to eq(false)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="122">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
           <li class="covered" data-hits="1" data-linenumber="123">
             <span class="hits">1</span>
             
 
             
 
-            <code class="ruby">        expect(response.status).to eq(200)</code>
+            <code class="ruby">        deactivate_response = JSON.parse(response.body, symbolize_names: true)</code>
           </li>
         </div>
       
@@ -3050,7 +3226,7 @@
 
             
 
-            <code class="ruby">        subscriptions = JSON.parse(response.body, symbolize_names: true)</code>
+            <code class="ruby">        expect(deactivate_response).to be_a(Hash)</code>
           </li>
         </div>
       
@@ -3061,29 +3237,29 @@
 
             
 
-            <code class="ruby">        expect(subscriptions[:data].count).to eq(3)</code>
+            <code class="ruby">        expect(deactivate_response).to have_key(:success)</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="127">
+          <li class="covered" data-hits="1" data-linenumber="127">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">        expect(deactivate_response).to have_value(&quot;Subscription is now inactive&quot;)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="128">
             
             
 
             
 
             <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="128">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">        expect(subscriptions).to be_a(Hash)</code>
           </li>
         </div>
       
@@ -3094,18 +3270,18 @@
 
             
 
-            <code class="ruby">        expect(subscriptions).to have_key(:data)</code>
+            <code class="ruby">        subscription_params_activate = FactoryBot.attributes_for(:subscription, status: true)</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="130">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="130">
+            
             
 
             
 
-            <code class="ruby">        expect(subscriptions[:data]).to be_an(Array)</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -3116,18 +3292,18 @@
 
             
 
-            <code class="ruby">        expect(subscriptions[:data].first).to be_a(Hash)</code>
+            <code class="ruby">        patch api_v1_customer_subscription_path(customer1, subscription1), params: { subscription: subscription_params_activate }</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="132">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="132">
+            
             
 
             
 
-            <code class="ruby">        expect(subscriptions[:data].first).to have_key(:id)</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -3138,7 +3314,7 @@
 
             
 
-            <code class="ruby">        expect(subscriptions[:data].first).to have_key(:type)</code>
+            <code class="ruby">        expect(response).to be_successful</code>
           </li>
         </div>
       
@@ -3149,29 +3325,29 @@
 
             
 
-            <code class="ruby">        expect(subscriptions[:data].first).to have_key(:attributes)</code>
+            <code class="ruby">        expect(response.status).to eq(202)</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="135">
+          <li class="covered" data-hits="1" data-linenumber="135">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">        expect(subscription1.reload.status).to eq(true)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="136">
             
             
 
             
 
             <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="136">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">        expect(subscriptions[:data].first[:id]).to be_a(String)</code>
           </li>
         </div>
       
@@ -3182,23 +3358,12 @@
 
             
 
-            <code class="ruby">        expect(subscriptions[:data].first[:type]).to be_a(String)</code>
+            <code class="ruby">        activate_response = JSON.parse(response.body, symbolize_names: true)</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="138">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">        expect(subscriptions[:data].first[:attributes]).to be_a(Hash)</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="139">
+          <li class="never" data-hits="" data-linenumber="138">
             
             
 
@@ -3209,13 +3374,24 @@
         </div>
       
         <div>
+          <li class="covered" data-hits="1" data-linenumber="139">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">        expect(activate_response).to be_a(Hash)</code>
+          </li>
+        </div>
+      
+        <div>
           <li class="covered" data-hits="1" data-linenumber="140">
             <span class="hits">1</span>
             
 
             
 
-            <code class="ruby">        expect(subscriptions[:data].first[:attributes]).to have_key(:title)</code>
+            <code class="ruby">        expect(activate_response).to have_key(:success)</code>
           </li>
         </div>
       
@@ -3226,29 +3402,29 @@
 
             
 
-            <code class="ruby">        expect(subscriptions[:data].first[:attributes]).to have_key(:price)</code>
+            <code class="ruby">        expect(activate_response).to have_value(&quot;Subscription is now active&quot;)</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="142">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="142">
+            
             
 
             
 
-            <code class="ruby">        expect(subscriptions[:data].first[:attributes]).to have_key(:status)</code>
+            <code class="ruby">      end</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="143">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="143">
+            
             
 
             
 
-            <code class="ruby">        expect(subscriptions[:data].first[:attributes]).to have_key(:frequency)</code>
+            <code class="ruby">    end</code>
           </li>
         </div>
       
@@ -3270,7 +3446,7 @@
 
             
 
-            <code class="ruby">        expect(subscriptions[:data].first[:attributes][:title]).to be_a(String)</code>
+            <code class="ruby">    context &quot;sad path&quot; do</code>
           </li>
         </div>
       
@@ -3281,7 +3457,7 @@
 
             
 
-            <code class="ruby">        expect(subscriptions[:data].first[:attributes][:price]).to be_a(Float)</code>
+            <code class="ruby">      it &quot;returns an error message if parameter values are invalid&quot; do</code>
           </li>
         </div>
       
@@ -3292,29 +3468,29 @@
 
             
 
-            <code class="ruby">        expect(subscriptions[:data].first[:attributes][:status]).to be_instance_of(TrueClass).or be_instance_of(FalseClass)</code>
+            <code class="ruby">        subscription_params = FactoryBot.attributes_for(:subscription, title: nil, price: nil, frequency: nil,  tea_id: tea1.id)</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="148">
+          <li class="never" data-hits="" data-linenumber="148">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="149">
             <span class="hits">1</span>
             
 
             
 
-            <code class="ruby">        expect(subscriptions[:data].first[:attributes][:frequency]).to be_a(String)</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="149">
-            
-            
-
-            
-
-            <code class="ruby">      end</code>
+            <code class="ruby">        patch api_v1_customer_subscription_path(customer1, subscription1), params: { customer_id: customer1.id, subscription: subscription_params }</code>
           </li>
         </div>
       
@@ -3325,12 +3501,111 @@
 
             
 
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="151">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">        expect(response).not_to be_successful</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="152">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">        expect(response.status).to eq(422)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="153">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">        error_response = JSON.parse(response.body, symbolize_names: true)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="154">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="155">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">        expect(error_response).to be_a(Hash)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="156">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">        expect(error_response).to have_key(:error)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="157">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">        expect(error_response[:error]).to include(&quot;FAIL: invalid params&quot;)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="158">
+            
+            
+
+            
+
+            <code class="ruby">      end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="159">
+            
+            
+
+            
+
             <code class="ruby">    end</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="151">
+          <li class="never" data-hits="" data-linenumber="160">
             
             
 
@@ -3341,7 +3616,502 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="152">
+          <li class="never" data-hits="" data-linenumber="161">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="162">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">  describe &quot;GET /api/v1/customers/:id/subscriptions&quot; do</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="163">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="2" data-linenumber="164">
+            <span class="hits">2</span>
+            
+
+            
+
+            <code class="ruby">    let!(:customer1) { FactoryBot.create(:customer) }</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="2" data-linenumber="165">
+            <span class="hits">2</span>
+            
+
+            
+
+            <code class="ruby">    let!(:tea1) { FactoryBot.create(:tea) }</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="2" data-linenumber="166">
+            <span class="hits">2</span>
+            
+
+            
+
+            <code class="ruby">    let!(:tea2) { FactoryBot.create(:tea) }</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="2" data-linenumber="167">
+            <span class="hits">2</span>
+            
+
+            
+
+            <code class="ruby">    let!(:subscription1) { FactoryBot.create(:subscription, status: true, customer: customer1, tea: tea1) }</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="2" data-linenumber="168">
+            <span class="hits">2</span>
+            
+
+            
+
+            <code class="ruby">    let!(:subscription2) { FactoryBot.create(:subscription, status: false,  customer: customer1, tea: tea2) }</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="2" data-linenumber="169">
+            <span class="hits">2</span>
+            
+
+            
+
+            <code class="ruby">    let!(:subscription3) { FactoryBot.create(:subscription, status: true,  customer: customer1, tea: tea2) }</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="170">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="171">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    context &quot;happy path&quot; do</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="172">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">      it &quot;returns a JSON object with all of a customer&#39;s subscriptions both active and inactive&quot; do</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="173">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="174">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">        get api_v1_customer_subscriptions_path(customer1)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="175">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="176">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">        expect(response).to be_successful</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="177">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">        expect(response.status).to eq(200)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="178">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="179">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">        subscriptions = JSON.parse(response.body, symbolize_names: true)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="180">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">        expect(subscriptions[:data].count).to eq(3)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="181">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="182">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">        expect(subscriptions).to be_a(Hash)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="183">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">        expect(subscriptions).to have_key(:data)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="184">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">        expect(subscriptions[:data]).to be_an(Array)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="185">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">        expect(subscriptions[:data].first).to be_a(Hash)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="186">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">        expect(subscriptions[:data].first).to have_key(:id)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="187">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">        expect(subscriptions[:data].first).to have_key(:type)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="188">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">        expect(subscriptions[:data].first).to have_key(:attributes)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="189">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="190">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">        expect(subscriptions[:data].first[:id]).to be_a(String)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="191">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">        expect(subscriptions[:data].first[:type]).to be_a(String)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="192">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">        expect(subscriptions[:data].first[:attributes]).to be_a(Hash)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="193">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="194">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">        expect(subscriptions[:data].first[:attributes]).to have_key(:title)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="195">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">        expect(subscriptions[:data].first[:attributes]).to have_key(:price)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="196">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">        expect(subscriptions[:data].first[:attributes]).to have_key(:status)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="197">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">        expect(subscriptions[:data].first[:attributes]).to have_key(:frequency)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="198">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="199">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">        expect(subscriptions[:data].first[:attributes][:title]).to be_a(String)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="200">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">        expect(subscriptions[:data].first[:attributes][:price]).to be_a(Float)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="201">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">        expect(subscriptions[:data].first[:attributes][:status]).to be_instance_of(TrueClass).or be_instance_of(FalseClass)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="202">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">        expect(subscriptions[:data].first[:attributes][:frequency]).to be_a(String)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="203">
+            
+            
+
+            
+
+            <code class="ruby">      end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="204">
+            
+            
+
+            
+
+            <code class="ruby">    end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="205">
+            
+            
+
+            
+
+            <code class="ruby">  end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="206">
             
             
 
