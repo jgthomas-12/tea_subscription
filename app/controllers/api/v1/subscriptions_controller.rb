@@ -14,6 +14,15 @@ class Api::V1::SubscriptionsController < ApplicationController
     end
   end
 
+  def destroy
+    subscription = Subscription.find(params[:id])
+    if subscription.destroy
+      render json: { success: "Subscription deleted successfully" }, status: :ok
+    else
+      render json: { error: "Failed to delete subscription" }, status: :unprocessable_entity
+    end
+  end
+
   private
 
   def subscription_params

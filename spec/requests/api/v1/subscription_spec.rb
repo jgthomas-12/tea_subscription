@@ -1,7 +1,7 @@
 require "rails_helper"
 
 RSpec.describe "API V1 Subscription request", type: :request do
-  context "POST /api/v1/customers/:id/subscriptions" do
+  describe "POST /api/v1/customers/:id/subscriptions" do
 
     let!(:customer1) { FactoryBot.create(:customer) }
     let!(:tea1) { FactoryBot.create(:tea) }
@@ -12,7 +12,7 @@ RSpec.describe "API V1 Subscription request", type: :request do
 
         subscription_params = FactoryBot.attributes_for(:subscription, tea_id: tea1.id)
 
-        post "/api/v1/customers/#{customer1.id}/subscriptions", params: { subscription: subscription_params }
+        post api_v1_customer_subscriptions_path(customer1), params: { subscription: subscription_params }
 
         expect(response).to be_successful
         expect(response.status).to eq(201)
@@ -31,7 +31,7 @@ RSpec.describe "API V1 Subscription request", type: :request do
       it "returns an error if a tea_id is invalid" do
         subscription_params = FactoryBot.attributes_for(:subscription, tea_id: nil)
 
-        post "/api/v1/customers/#{customer1.id}/subscriptions", params: { subscription: subscription_params }
+        post api_v1_customer_subscriptions_path(customer1), params: { subscription: subscription_params }
 
         expect(response).not_to be_successful
         expect(response.status).to eq(422)
@@ -46,7 +46,7 @@ RSpec.describe "API V1 Subscription request", type: :request do
       it "returns an error if parameter values are invalid" do
         subscription_params = FactoryBot.attributes_for(:subscription, title: nil, price: nil, frequency: nil,  tea_id: tea1.id)
 
-        post "/api/v1/customers/#{customer1.id}/subscriptions", params: { customer_id: customer1.id, subscription: subscription_params }
+        post api_v1_customer_subscriptions_path(customer1), params: { customer_id: customer1.id, subscription: subscription_params }
 
         expect(response).not_to be_successful
         expect(response.status).to eq(422)
@@ -58,6 +58,7 @@ RSpec.describe "API V1 Subscription request", type: :request do
       end
 
       # it "returns an error if a customer_id is invalid" do
+      # expect{ Customer.find(customer1.id) }.to raise_error(ActiveRecord::RecordNotFound)
 
       #   customer_id = 999
       #   subscription_params = FactoryBot.attributes_for(:subscription, tea_id: tea1.id)
@@ -75,5 +76,33 @@ RSpec.describe "API V1 Subscription request", type: :request do
       #   expect(error_response[:error]).to include("Customer must exist")
       # end
     end
+  end
+
+  describe "DELETE /api/v1/customers/:id/subscriptions" do
+
+    let!(:customer1) { FactoryBot.create(:customer) }
+    let!(:tea1) { FactoryBot.create(:tea) }
+    let!(:subscription1) { FactoryBot.create(:subscription, customer: customer1, tea: tea1) }
+
+    context "happy path" do
+      it "successfully deletes a customer's subscription" do
+        expect(customer1.subscriptions.count).to eq(1)
+
+        delete api_v1_customer_subscription_path(customer1, subscription1)
+
+        expect(response).to be_successful
+        expect(response.status).to eq(200)
+        expect(customer1.subscriptions.count).to eq(0)
+        expect{ Subscription.find(subscription1.id) }.to raise_error(ActiveRecord::RecordNotFound)
+
+        error_response = JSON.parse(response.body, symbolize_names: true)
+
+        expect(error_response).to be_a(Hash)
+        expect(error_response).to have_key(:success)
+        expect(error_response).to have_value("Subscription deleted successfully")
+      end
+    end
+
+    # sad path - how can you make a subscription that can't be deleted? Add dependencies? 
   end
 end
